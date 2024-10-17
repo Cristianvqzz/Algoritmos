@@ -45,7 +45,7 @@ int main(void) {
             tabla(j,100,ord_ins,descendente);
         }
         printf("\n\n");
-    }*/
+    }
 
     printf("Ordenacion Rapida\n");
     for(int i = 0; i < NUMTABLAS; i++) {
@@ -62,7 +62,7 @@ int main(void) {
         }
         printf("\n\n");
     }
-
+*/
     printf("inicializacion Descendente\n");
     for(int i = 0; i < NUMTABLAS; i++) {
         for(int j = 500, m = 0;m < 8 ;m++, j *= 2) {
@@ -220,8 +220,8 @@ void tabla(int n,int k,void (*alg_ord) (int v[],int n),void (*inicializar) (int 
             exacta = n * log(n);
             sobrestimada = pow(n,1.5);
         }else if(inicializar == descendente) {
-            subestimada = n;
-            exacta = n * log(n);
+            subestimada = log(n);
+            exacta = pow(n,1.05);
             sobrestimada = pow(n,1.5);
         }else {
             printf("Inicializacion no valida");

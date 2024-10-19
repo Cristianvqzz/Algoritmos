@@ -1,6 +1,5 @@
-//
-// Created by daortiz on 11/10/24.
-//
+//Daniel Ortiz Sierra daniel.ortiz@udc.es
+//Cristian Vázquez Seijas cristian.vazquez.seijas@udc.es
 
 #ifndef TIEMPO_H
 #define TIEMPO_H

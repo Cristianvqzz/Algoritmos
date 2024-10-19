@@ -1,0 +1,199 @@
+Daniel Ortiz Sierra daniel.ortiz@udc.es
+Cristian Vázquez Seijas cristian.vazquez.seijas@udc.es
+INTRODUCCION:
+
+Se nos ha pedido analizar la comlejidad empírica de dos algoritmos de ordenación con tres formas de
+inicialización de vectores(aleatoria,ascendente,descendente).Los algoritmos de ordenacion son: Ordenación
+por Inserción y Ordenación Rápida.Primero hicimos unos test para probar las distintas formas de inicializar
+y que los vectores se ordenaran correctamente.Con los aleatorios iniciamos una nueva semilla al principio del
+programa.Para cada algoritmo con cada inicialización hicimos una tabla con los tiempos de ejecución (t(n)) para
+8 n diferentes con una progresión geométrica, además de dividir cada t(n) por las cotas(subestimada,exacta,sobrestimada).
+Finalmente en los casos de tiempos menores a 500 microsegundos, hacemos una media de k mediciones del algoritmo.
+
+
+UNIDADES DE MEDIDA: 
+Para todas las tablas los tiempos estaran en microsegundos.
+
+CARACTERISTICAS DE LA MAQUINA:
+Maquina que usaremos para las mediciones:
+CPU:11th Gen Intel(R) Core(TM) i7-11370H @ 3.30GHz
+Memoria:16GB de RAM y un disco externo de 512GB
+Distribucion de Linux:Ubuntu 24.04
+Version del Kernel:6.8.0-45-generic
+Compilador: gcc 13.2.0
+
+
+TABLAS DE MEDICIONES:
+Insercion:
+
+-Inicialización Aleatoria:
+          n           t(n)       t(n)/f(n)      t(n)/g(n)      t(n)/h(n)
+-------------------------------------------------------------------------
+*        500        116.908      0.0016207      0.0004676      0.0001349
+*       1000        456.061      0.0018156      0.0004561      0.0001146
+        2000       2057.000      0.0023517      0.0005142      0.0001125
+        4000       7616.000      0.0025005      0.0004760      0.0000906
+        8000      29412.000      0.0027731      0.0004596      0.0000762
+       16000     115245.000      0.0031204      0.0004502      0.0000649
+       32000     465443.000      0.0036191      0.0004545      0.0000571
+       64000    1873103.000      0.0041825      0.0004573      0.0000500
+-------------------------------------------------------------------------
+						0.00045
+* Tiempo medio de ejecución de 1000 ejecuciones del algoritmo
+Progresión Geométrica de razón 2
+
+Cota Subestimada f(n) = n^1.8 
+Cota Exacta g(n) =  n^2 constante = 0.00045
+Cota Sobrestimada t(n) = n^2.2 
+
+-Inicializacion Ascendente:
+          n            t(n)       t(n)/f(n)      t(n)/g(n)      t(n)/h(n)
+--------------------------------------------------------------------------
+*         500          1.114      0.0077216      0.0022280      0.0006429
+*        1000          2.525      0.0100522      0.0025250      0.0006343
+*        2000          4.446      0.0101659      0.0022230      0.0004861
+*        4000          9.460      0.0124235      0.0023650      0.0004502
+*        8000         18.641      0.0140604      0.0023301      0.0003862
+*       16000         35.578      0.0154129      0.0022236      0.0003208
+*       32000         68.527      0.0170507      0.0021415      0.0002690
+*       64000        131.953      0.0188571      0.0020618      0.0002254
+--------------------------------------------------------------------------
+						 0.0020
+* Tiempo medio de ejecución de 1000 ejecuciones del algoritmo
+Progresión Geométrica de razón 2
+
+Cota Subestimada f(n) = n^0.8
+Cota Exacta g(n) =  n constante =  0.0020 
+Cota Sobrestimada t(n) = n^1.2
+
+-Inicializacion Descendente:
+          n           t(n)       t(n)/f(n)      t(n)/g(n)      t(n)/h(n)
+-------------------------------------------------------------------------
+*        500        238.520      0.0033066      0.0009541      0.0002753
+        1000        935.000      0.0037223      0.0009350      0.0002349
+        2000       3748.000      0.0042849      0.0009370      0.0002049
+        4000      15415.000      0.0050610      0.0009634      0.0001834
+        8000      59286.000      0.0055897      0.0009263      0.0001535
+       16000     238146.000      0.0064480      0.0009303      0.0001342
+       32000     940094.000      0.0073097      0.0009181      0.0001153
+       64000    3732428.000      0.0083343      0.0009112      0.0000996
+-------------------------------------------------------------------------
+						0.00091
+* Tiempo medio de ejecución de 100 ejecuciones del algoritmo
+Progresión Geométrica de razón 2
+
+Cota Subestimada f(n) = n^1.8
+Cota Exacta g(n) = n^2 constante = 0.00091 
+Cota Sobrestimada t(n) = n^2.2 
+
+Ordenación Rápida:
+
+-Inicialización Aleatoria:
+          n           t(n)       t(n)/f(n)      t(n)/g(n)      t(n)/h(n)
+-------------------------------------------------------------------------
+*        500         30.670      0.0613400      0.0098703      0.0027432
+*       1000         64.790      0.0647900      0.0093793      0.0020488
+*       2000        137.600      0.0688000      0.0090516      0.0015384
+*       4000        293.980      0.0734950      0.0088612      0.0011621
+        8000        659.000      0.0823750      0.0091658      0.0009210
+       16000       1468.000      0.0917500      0.0094780      0.0007253
+       32000       3094.000      0.0966875      0.0093206      0.0005405
+       64000       6396.000      0.0999375      0.0090305      0.0003950
+-------------------------------------------------------------------------
+						0.0090
+* Tiempo medio de ejecución de 100 ejecuciones del algoritmo
+Progresión Geométrica de razón 2
+
+Cota Subestimada f(n) = n
+Cota Exacta g(n) =  n*log(n) constante = 0.0090 
+Cota Sobrestimada t(n) = n^1.5
+
+-Inicializacion Ascendente:
+          n           t(n)       t(n)/f(n)      t(n)/g(n)      t(n)/h(n)
+-------------------------------------------------------------------------
+*        500         17.270      0.0345400      0.0055579      0.0015447
+*       1000         39.790      0.0397900      0.0057602      0.0012583
+*       2000         82.870      0.0414350      0.0054513      0.0009265
+*       4000        178.340      0.0445850      0.0053755      0.0007050
+*       8000        356.720      0.0445900      0.0049615      0.0004985
+       16000        844.000      0.0527500      0.0054492      0.0004170
+       32000       1802.000      0.0563125      0.0054285      0.0003148
+#      64000       3335.000      0.0521094      0.0047087      0.0002060
+-------------------------------------------------------------------------
+					     [0.0049,0.0054]
+
+# Medición Anómala
+* Tiempo medio de ejecución de 100 ejecuciones del algoritmo
+Progresión Geométrica de razón 2
+
+Cota Subestimada f(n) = n
+Cota Exacta g(n) =  n*log(n) constante = [0.0049,0.0054]
+Cota Sobrestimada t(n) = n^1.5
+
+-Inicializacion Descendente:
+          n           t(n)       t(n)/f(n)      t(n)/g(n)      t(n)/h(n)
+-------------------------------------------------------------------------
+*        500         17.740      0.0354800      0.0057091      0.0015867
+*       1000         40.240      0.0402400      0.0058253      0.0012725
+*       2000         81.710      0.0408550      0.0053750      0.0009135
+*       4000        173.150      0.0432875      0.0052191      0.0006844
+*       8000        357.800      0.0447250      0.0049765      0.0005000
+       16000        807.000      0.0504375      0.0052103      0.0003987
+       32000       1704.000      0.0532500      0.0051333      0.0002977
+       64000       3585.000      0.0560156      0.0050617      0.0002214
+-------------------------------------------------------------------------
+					    [0.0050,0.0052]
+* Tiempo medio de ejecución de 100 ejecuciones del algoritmo
+Progresión Geométrica de razón 2
+
+Cota Subestimada f(n) = n
+Cota Exacta g(n) =  n*log(n) constante = 0.0050,0.0052]
+Cota Sobrestimada t(n) = n^1.5
+
+CONCLUSION:
+Tras observar las tablas, viendo los t(n) se observa que la ordenacion rápida es mucho más
+rápida que la ordenacion por inserción, salvo cuando el vector esta ordenado de forma ascendente
+donde la insercion es la más rapida con diferencia. Esto se debe a que con el vector ordenado
+ascendentemente, inserción solo recorre el vector,por lo que no hace ningun cambio.Por otra parte,en insercion
+con el vector ordenado descendentemente es la más lenta, devido a que ademas de recorrer el vector hace
+hace un intercambio más en cada iteración del segundo bucle. 
+
+En la ordenación rápida vemos que con inicializacion ascendente y descendente dan resultados muy
+parecidos y que con u vector aleatorio el tiempo es un poco menos que el doble.
+
+Para evitar resultados anomalos hicimos 5 pruebas seguidas para cada tabla y elegimos la que nos dió mejores resultados.
+Por lo general siempre la primera tabla tenia resultados anomalos en la primera y segunda n, por lo cual nos basamos en las 
+otras 4 tablas.Igualmente a la hora de elegir la constante de la cota exacta si que tuvimos en cuenta los resultados de las 
+tablas no escogidas para saber si usar un intervalo o no.
+
+Para la elección de las cotas:En general, para los dos algoritmos fuimos probando diferentes cotas exactas y una vez elegida
+la que nos dio el resulrado deseado, probamos con cotas cercanas para elegir la cota subestimada y la sobrestimada.
+
+Cota Exacta:
+
+Para la ordenación por inserción, la cota exacta en el vector ascendente es O(n), ya que solo recorre el vector sin realizar intercambios. En los casos de los vectores aleatorio 
+y descendente, se determina una cota exacta de O(n²), ya que ambos bucles del algoritmo entran en funcionamiento. Las constantes obtenidas para cada caso tienden a valores específicos,
+como 0.0020 en la ascendente y 0.00045 en la aleatoria, en la descendente si que habia más variaciones en la constante , habiendo mayor diferencia entre la primera n y la ultima(aunque
+seguia siendo una diferencia pequeña y valida para la constante), pero en las demás tablas casi siempre terminaba tendiendo a 0.00091 que fue la constante elegida.
+
+Para la ordenación rápida, para la cota exacta como el algoritmo dividia el vector de dos partes y hacia llamadas recursiva,comenzamos probando con las distintas complejidades que hay en el
+teorema de divide y vecerás, lo que llevó a la cota O(nlog(n)). En la inicialización aleatoria,se obtuvo una constante de 0.0090 (teniamos un caso como con insercion con inicialización descendente, por
+lo que seguimos el mismo procedimiento para la constante),mientras que en la inicialización ascendente tuvimos un resultado anomalo en n = 64000, no lo pudimos evitar debido a que en las demás tablas
+tambien solia aparecer, asi que simplemente no se tomó en cuenta, elegimos un intervalo que abarcara las constantes a las que solia tender las diferentes tablas, llegando asi a [0.0049,0.0054] como
+constante.En la inicialización descendente hicimos los mismo para elegir el intervalo que con la inicializacion ascendente, aqui también nos solia aparecer una medición anómala en n = 64000, pero esta
+vez si que habia varias tablas que no tenian este problema.
+
+Cota Subestimada:
+Para la ordenación por inserción, en los tres casos (vector ordenado ascendentemente, aleatorio y ordenado descendentemente), la cota subestimada se obtuvo restando 0.2 al exponente de la cota exacta.
+En general para los tres casos los resultados son los esperados, viendo esta constante tendencia creciente(obviamente cada caso tiene un crecimiento diferente).
+
+En la ordenación rápida,se probó con cotas cercanas a la exacta.Los resultados tambien son los esperados, con un crecimiento constante en los tres casos, se ignoró la n = 64000 en la inicialiación
+ascendente por el resultado anómalo mencionado anteriormente.
+
+Cota Sobrestimada:
+En la ordenación por inserción, la cota sobrestimada se determinó sumando 0.2 al exponente de la cota exacta en cada caso.En los tres casos se observa el decrecimiento claro, que era lo que se esperaba.
+Las tres muestran un descenso similar(en cuanto proporción, no en valores). 
+
+En la ordenación rápida, la cota sobrestimada siguió el mismo proceso de cota cercana a la cota exacta. Se observó un decrecimiento constante en todos los casos,aqui la medición anomala en la inicialización
+ascendente no afectaba el resultado de la cota sobrestimada, pero igualmente no se tomó en cuenta. 
+

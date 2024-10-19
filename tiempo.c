@@ -1,6 +1,5 @@
-//
-// Created by daortiz on 11/10/24.
-//
+//Daniel Ortiz Sierra daniel.ortiz@udc.es
+//Cristian Vázquez Seijas cristian.vazquez.seijas@udc.es
 
 #include "tiempo.h"
 
@@ -15,6 +14,7 @@ double microsegundos() {
 double alg_time(int n,int k,void (*inicializar) (int v[],int n),void (*ordenar) (int v[],int n)) {
     double t,t1,t2,ta,tb;
     int *v;
+    int i;
 
     v = malloc(n*sizeof(int));
     inicializar(v,n);
@@ -26,7 +26,7 @@ double alg_time(int n,int k,void (*inicializar) (int v[],int n),void (*ordenar) 
     if (t < 500) {
         printf("%-12d*",k);
         ta = microsegundos();
-        for (int i = 0; i < k; i++) {
+        for (i = 0; i < k; i++) {
             inicializar(v,n);
             ordenar(v,n);
         }
@@ -37,7 +37,7 @@ double alg_time(int n,int k,void (*inicializar) (int v[],int n),void (*ordenar) 
             return 0.0;
         }
         ta = microsegundos();
-        for (int i = 0; i < k; i++) {
+        for (i = 0; i < k; i++) {
             inicializar(v,n);
         }
         tb = microsegundos();

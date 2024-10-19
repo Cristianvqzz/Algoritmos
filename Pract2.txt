@@ -167,7 +167,7 @@ otras 4 tablas.Igualmente a la hora de elegir la constante de la cota exacta si 
 tablas no escogidas para saber si usar un intervalo o no.
 
 Para la elección de las cotas:En general, para los dos algoritmos fuimos probando diferentes cotas exactas y una vez elegida
-la que nos dio el resulrado deseado, probamos con cotas cercanas para elegir la cota subestimada y la sobrestimada.
+la que nos dio el resultado deseado, probamos con cotas cercanas para elegir la cota subestimada y la sobrestimada.
 
 Cota Exacta:
 
